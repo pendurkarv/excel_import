@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "45422b13-c6b1-43a4-a3aa-498b788ae4f4",
+		"name": "excel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"anil1234\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/gst/api/users.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"gst",
+						"api",
+						"users.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2dzdFwvYXBpIiwiYXVkIjoiaHR0cDpcL1wvbG9jYWxob3N0XC9nc3QiLCJpYXQiOjE1NDY2OTEzMzIsImV4cCI6MTU0NjY5NDkzMn0.S3uRk6QpDEoBLwkRMfzs8Afl3SuejAOfyBljvVwOvto",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "excel[]",
+							"type": "file",
+							"src": ""
+						},
+						{
+							"key": "excel[]",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/gst/api/excels.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"gst",
+						"api",
+						"excels.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Upload single or multiple excels"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Excel Download",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/excels.php?action=download&id=22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"excels.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "download"
+						},
+						{
+							"key": "id",
+							"value": "22"
+						}
+					]
+				},
+				"description": "Download excel file from server"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/excels.php?id=22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"excels.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "22"
+						}
+					]
+				},
+				"description": "Get details of single excel file"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Excel Cell value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/excels.php?action=fetch-cell&id=22&sheet_id=1&column_index=A1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"excels.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "fetch-cell"
+						},
+						{
+							"key": "id",
+							"value": "22"
+						},
+						{
+							"key": "sheet_id",
+							"value": "1"
+						},
+						{
+							"key": "column_index",
+							"value": "A1"
+						}
+					]
+				},
+				"description": "Get Excel cell value by ExcelID, SheetID & ColumnIndex"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Vidyadhar Pendurkar\",\n\t\"username\": \"Vidyadhar\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/users.php?action=register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"users.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "register"
+						}
+					]
+				},
+				"description": "Register user with following data.\n\nname => required,\nusername => required,\npassword => required"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Vidyadhar\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/users.php?action=login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"users.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "login"
+						}
+					]
+				},
+				"description": "Login user with username & password.\n\nReturn JWT Token if success else Error 403 - Unauthorized"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Imprt excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{auth}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "excel[]",
+							"type": "file",
+							"src": ""
+						},
+						{
+							"key": "excel[]",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/excel_import/api/excels.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"excel_import",
+						"api",
+						"excels.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Import excel along with data into database"
+			},
+			"response": []
+		}
+	]
+}
